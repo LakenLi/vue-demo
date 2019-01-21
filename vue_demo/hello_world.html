@@ -25,6 +25,24 @@
             </li>
         </ol>
     </div>
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">翻转 message</button>
+    </div>
+    <div id="app-6">
+        <p>{{message}}</p>
+        <input v-model="message" type="text">
+    </div>
+    <div id="app-7">
+        <ol>
+            <todo-item 
+                v-for="item in groceryList" 
+                v-bind:todo="item"
+                v-bind:key="item.id"/>
+
+            </todo-litem>
+        </ol>
+    </div>
 </body>
 <script>
     var app = new Vue({
@@ -58,5 +76,45 @@
             ]
         }
     })
+
+    var app5 = new Vue({
+        el: "#app-5",
+        data:{
+            message: 'Hello VUe.js'
+        },
+        methods: {
+            reverseMessage: function(){
+                this.message = this.message.split('').reverse().join('')
+            }
+        },
+    })
+
+    var app6 = new Vue({
+        el: "#app-6",
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+
+    //定义一个名为 todo-item的组件
+    Vue.component('todo-item', {
+        //todo-item 组件现在接受一个“prop”
+        //类似一个自定义属性
+        //此prop名为todo
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+    })
+
+    var app7 = new Vue({
+        el:"#app-7",
+        data:{
+            groceryList:[
+                {id:0, text:'蔬菜'},
+                {id:1, text:'奶酪'},
+                {id:2, text:'其他食物'}
+            ]
+        }
+    })
+
 </script>
 </html>
