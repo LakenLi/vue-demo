@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">{{message}}</div>
+    <div id="app-2">
+        <span v-bind:title="message">
+            鼠标悬停此处几秒，
+            可以看到此处动态绑定的 title!
+        </span>
+    </div>
+    <div id="app-3">
+        <span v-if="seen">现在你可以看到我</span>
+    </div>
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data:{
+            message: '页面加载于' + new Date().toLocaleString()
+        }
+    })
+
+    var app3 = new Vue({
+        el: "#app-3",
+        data:{
+            seen: true
+        }
+    })
+
+    var app4 = new Vue({
+        el:"#app-4",
+        data:{
+            todos:[
+                { text: '学习 Javascript' },
+                { text: '学习 Vue' },
+                { text: '创建哈哈的代码' }
+            ]
+        }
+    })
+</script>
+</html>
