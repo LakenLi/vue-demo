@@ -4,7 +4,7 @@ import App from './app.vue'
 
 import './assets/styles/global.styl'
 
-const root = document.createElemen('div')
+const root = document.createElement('div')
 document.body.appendChild(root)
 
 new Vue({

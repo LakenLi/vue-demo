@@ -1,6 +1,6 @@
 <template>
     <header class="main-header">
-        <h1>Haha Todo</h1>
+        <h1>JTodo</h1>
     </header>
 </template>
 

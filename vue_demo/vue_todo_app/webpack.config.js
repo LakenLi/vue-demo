@@ -59,17 +59,18 @@ const config = {
             },
         ]
     },
-    plugins:[
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: isDev ? '"development"' : '"production"',
-            }
-        }),
+     plugins:[
+    //     new webpack.DefinePlugin({
+    //         'process.env': {
+    //             NODE_ENV: isDev ? '"development"' : '"production"',
+    //         }
+    //     }),
         new VueLoaderPlugin(),
         new HTMLPlugin(),
-        //new CssLoaderPlugin(),
-        //new UrlLoaderPlugin(),
-    ]
+    //     //new CssLoaderPlugin(),
+    //     //new UrlLoaderPlugin(),
+    ],
+    mode: isDev ? 'development' : 'production',
 }
 
 
